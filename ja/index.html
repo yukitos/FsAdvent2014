@@ -555,6 +555,42 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 
 <p>という形式になります。</p>
 
+<h2>ドキュメントをGitHub Pagesとして公開する</h2>
+
+<p>GitHub Pagesとしてドキュメントを公開するには、単に<code>gh-pages</code>というブランチを作成して、
+そのブランチへファイルをコミット＆プッシュするだけです。</p>
+
+<p>既にgitがインストールしてあって、git.exeがパスの通った場所に見つかる場合には</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">ReleaseDocs</span></pre>
+</td>
+</tr>
+</table>
+
+<p>とするだけで<code>gh-pages</code>ブランチに<code>docs/output</code>以下のファイルをコミットしてくれます。
+ひょっとすると<code>gh-pages</code>ブランチも作成してくれるかもしれませんが試していません。</p>
+
+<p>手元の環境ではgitがインストールされていなくて、
+<a href="https://www.atlassian.com/ja/software/sourcetree">SourceTree</a> しかなかったので、
+この場合はターミナルを起動して</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="o">.</span><span class="o">/</span><span class="i">build</span><span class="o">.</span><span class="i">sh</span> <span class="i">ReleaseDocs</span></pre>
+</td>
+</tr>
+</table>
+
+<p>とすればGitHub Pagesにドキュメントをアップロードできます。お手軽です。</p>
+
 <h2>終わりに</h2>
 
 <p>お気づきかとは思いますが、以上のようにして作成したのがまさにこのページです。</p>
