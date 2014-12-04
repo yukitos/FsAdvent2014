@@ -296,6 +296,21 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 
     build.cmd GenerateHelpDebug
 
+## 新しい言語用のドキュメントを追加する
+
+英語と日本語以外のドキュメントを追加するために必要な手順は以下の通りです：
+
+1. `docs/content/<lang>` フォルダにファイルを用意する
+2. `docs/tools/templates/<lang>` フォルダに言語固有のテンプレートファイルを用意する
+3. `docs/tools/generate.fsx` にある `layoutRootsAll` の値を編集する
+
+`layoutRootsAll` の値は
+
+    ("<lang>", [templates @@ "<lang>"; formatting @@ "templates"
+                formatting @@ "templates/reference"])
+
+という形式になります。
+
 ## 終わりに
 
 お気づきかとは思いますが、以上のようにして作成したのがまさにこのページです。
