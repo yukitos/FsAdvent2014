@@ -311,6 +311,26 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 
 という形式になります。
 
+## ドキュメントをGitHub Pagesとして公開する
+
+GitHub Pagesとしてドキュメントを公開するには、単に`gh-pages`というブランチを作成して、
+そのブランチへファイルをコミット＆プッシュするだけです。
+
+既にgitがインストールしてあって、git.exeがパスの通った場所に見つかる場合には
+
+    build.cmd ReleaseDocs
+
+とするだけで`gh-pages`ブランチに`docs/output`以下のファイルをコミットしてくれます。
+ひょっとすると`gh-pages`ブランチも作成してくれるかもしれませんが試していません。
+
+手元の環境ではgitがインストールされていなくて、
+[SourceTree][sourcetree] しかなかったので、
+この場合はターミナルを起動して
+
+    ./build.sh ReleaseDocs
+
+とすればGitHub Pagesにドキュメントをアップロードできます。お手軽です。
+
 ## 終わりに
 
 お気づきかとは思いますが、以上のようにして作成したのがまさにこのページです。
@@ -332,5 +352,6 @@ F#のプロジェクトを作成する場合には、GitHub上で
   [download]: https://github.com/fsprojects/ProjectScaffold/archive/master.zip
   [fsformatting]: https://github.com/tpetricek/FSharp.Formatting
   [fsdata]: https://github.com/fsharp/FSharp.Data
+  [sourcetree]: https://www.atlassian.com/ja/software/sourcetree
 
 *)
