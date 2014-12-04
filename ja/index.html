@@ -529,6 +529,32 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 </tr>
 </table>
 
+<h2>新しい言語用のドキュメントを追加する</h2>
+
+<p>英語と日本語以外のドキュメントを追加するために必要な手順は以下の通りです：</p>
+
+<ol>
+<li><code>docs/content/&lt;lang&gt;</code> フォルダにファイルを用意する</li>
+<li><code>docs/tools/templates/&lt;lang&gt;</code> フォルダに言語固有のテンプレートファイルを用意する</li>
+<li><code>docs/tools/generate.fsx</code> にある <code>layoutRootsAll</code> の値を編集する</li>
+</ol>
+
+<p><code>layoutRootsAll</code> の値は</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+<span class="l">2: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+(<span class="s">&quot;</span><span class="s">&lt;</span><span class="s">lang</span><span class="s">&gt;</span><span class="s">&quot;</span>, [<span class="i">templates</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">&lt;</span><span class="s">lang</span><span class="s">&gt;</span><span class="s">&quot;</span>; <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">&quot;</span>
+            <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">/</span><span class="s">reference</span><span class="s">&quot;</span>])</pre>
+</td>
+</tr>
+</table>
+
+<p>という形式になります。</p>
+
 <h2>終わりに</h2>
 
 <p>お気づきかとは思いますが、以上のようにして作成したのがまさにこのページです。</p>
