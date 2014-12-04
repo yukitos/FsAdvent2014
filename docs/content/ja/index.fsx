@@ -284,9 +284,9 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 
 変更箇所は以下の通りです：
 
-  * 元の`generateHelp`関数の名前を`generateHelp'`に変更
-    あわせてデバッグビルドかどうかを引数に渡せるようにした
-  * ビルドターゲット`GenerateHelpDebug`を追加
+  * 元の`generateHelp`関数の名前を`generateHelp'`に変更。
+    あわせてデバッグビルドかどうかを引数に渡せるようにした。
+  * ビルドターゲット`GenerateHelpDebug`を追加。
   * `GenerateHelpDebug`を実行する場合には必ず`CleanDocs`を実行して、
     一旦ドキュメントを全消去するようビルドチェインを作成
 
