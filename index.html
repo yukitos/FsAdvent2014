@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>index</title>
+    <title>Create a project with using F# Project Scaffold
+</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="F# Advent Calendar 2014 project"/>
     <meta name="author" content="yukitos"/>
@@ -33,7 +34,132 @@
       <div class="row">
         <div class="span9" id="main">
           
-<p>// TODO</p>
+<h1>Create a project with using F# Project Scaffold</h1>
+
+<p>This article is the 4th in the <a href="http://connpass.com/event/9758/">F# Advent Calendar in Japanese</a> series.</p>
+
+<p>The 3rd is <a href="http://otf.hateblo.jp/entry/2014/12/02/221037">ApiaryProviderで大マッシュアップ時代を生き抜く</a>
+(How to survive these widely mashed-up days with ApiaryProvider) written by otf.</p>
+
+<p>Here, as titled, I'm trying to create a new project with using <a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a>.</p>
+
+<h2>Getting started</h2>
+
+<p><a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a>'s <a href="http://fsprojects.github.io/ProjectScaffold/index.html#Getting-started">Getting started</a> page says:</p>
+
+<blockquote>
+  <p>This first thing to do is to clone or copy the ProjectScaffold repository to your own workspace.</p>
+</blockquote>
+
+<p>To make things easier, I <a href="https://github.com/fsprojects/ProjectScaffold/archive/master.zip">download a ZIP file</a> and use it.</p>
+
+<p>By the way, I'm writing for Windows environment and I don't know how to do this on other environments (help! :)</p>
+
+<p>Extract the file under <code>C:\gh\MyProject</code> directory, so now I have <code>C:\gh\MyProject\build.cmd</code> etc.</p>
+
+<p>Note that we shouldn't extract it into some deep directory path.
+When I extracted the file under <code>deep\deep\deep\directory\path\on\your\machine</code>,
+I had got a cryptic <code>Could not find a part of the path</code> error during building my project.
+I suspect that this error has been caused by some NuGet packages which have too long path inside it.</p>
+
+<h2>Initialize my project</h2>
+
+<p>To initialize my project, start command prompt via Windows Explorer
+(input <code>cmd</code> in the address bar and then press enter) or start from Start Menu and move to the project folder.
+Then run the following command:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span></pre>
+</td>
+</tr>
+</table>
+
+<p>This command asks me about my project (listed below):</p>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left"><p>Question</p></th>
+<th align="left"><p>Example answer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><p>Project Name (used for solution/project files)</p></td>
+<td align="left"><p>MyProj</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>Summary (a short description)</p></td>
+<td align="left"><p>My first project.</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>Description (longer description used by NuGet)</p></td>
+<td align="left"><p>My first project created with using F# Project Scaffold.</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>Author</p></td>
+<td align="left"><p>Anonymous</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>Tags (separated by spaces)</p></td>
+<td align="left"><p>Sample F# Scaffold</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>Github User or Organization</p></td>
+<td align="left"><p>anonymous</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>Github Project Name (leave blank to use Project Name)</p></td>
+<td align="left"><p>(leave blank)</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>After the last question, the build command continues to build my project automatically.
+At this point, the newly created solution file and related projects are available.</p>
+
+<p>This time, however, I'm trying to add Japanese documents rather than implementing my project :)</p>
+
+<h2>Add Japanese documents</h2>
+
+<p>By default, <a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a> has an ability to generate project's documents.
+All <code>.fsx</code> and/or <code>.md</code> files under <code>docs/content</code> directory are parsed and
+then these files will be translated into html formatted documents (can be found under <code>docs/output</code>).
+This function uses <a href="http://tpetricek.github.io/FSharp.Formatting/">F# Formatting</a> to translate from <code>.fsx</code> or <code>.md</code> to <code>.html</code>.
+In addition, project's API reference documents will be generated if XML document comments are provided.</p>
+
+<p>To add Japanese documents, run the following command:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">AddLangDocs</span> <span class="i">ja</span></pre>
+</td>
+</tr>
+</table>
+
+<blockquote>
+  <p>If we need to create documents for more languages, we need to add more language names to this command:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">AddLangDocs</span> <span class="i">ja</span> <span class="i">de</span> <span class="i">fr</span> <span class="i">zh</span></pre>
+</td>
+</tr>
+</table>
+</blockquote>
+
+<p>// WIP</p>
 
 
         </div>
