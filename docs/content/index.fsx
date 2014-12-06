@@ -68,7 +68,7 @@ To add Japanese documents, run the following command:
 
     build.cmd AddLangDocs ja
 
-> If we need to create documents for more languages, we need to add more language names to this command:
+> If we need to create documents for more languages, add more language names to this command:
 > 
 >     build.cmd AddLangDocs ja de fr zh
 > 
