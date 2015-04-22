@@ -155,7 +155,7 @@ URLエンコードされたらしいやたらと長いフォルダ名がある�
 
   <p><code>build.cmd AddLangDocs</code> コマンドに不具合があり、各言語用のテンプレートファイルが
 正しく適用されていないことがわかりました。
-bleisさんありがとうございます。</p>
+bleisさん報告ありがとうございます。</p>
 
   <p>2015/4/22現在の最新版では修正されていますので、
 これから使い始める場合には問題無いはずです。</p>
@@ -164,6 +164,13 @@ bleisさんありがとうございます。</p>
 修正すればいいはずです：</p>
 
   <p><a href="https://github.com/yukitos/ProjectScaffold/commit/5a2fdb4b72f5b2c704e8b85fabf5f0eb4fd89831">https://github.com/yukitos/ProjectScaffold/commit/5a2fdb4b72f5b2c704e8b85fabf5f0eb4fd89831</a></p>
+
+  <p><code>build.cmd AddLangDocs &lt;言語名&gt;</code>コマンドでドキュメントを追加した場合、
+残る作業としては
+<code>docs\tools\templates\&lt;言語名&gt;\template.cshtml</code>のテンプレートファイルの編集と、
+<code>docs\content\&lt;言語名&gt;\</code> 以下のファイルを用意するだけです。</p>
+
+  <p>なお<code>&lt;言語名&gt;</code>としては2文字または3文字の言語名を指定します(例：「ja」「fr」「de」)。</p>
 </blockquote>
 
 <hr />
