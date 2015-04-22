@@ -5,17 +5,17 @@
     <title>Create a project with using F# Project Scaffold
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="F# Advent Calendar 2014 project"/>
-    <meta name="author" content="yukitos"/>
+    <meta name="description" content="##Summary##"/>
+    <meta name="author" content="##Author##"/>
 
     <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
     <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
     <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
 
-    <link type="text/css" rel="stylesheet" href="/FsAdvent2014/content/style.css" />
-    <link type="text/css" rel="stylesheet" href="/FsAdvent2014/content/project.css" />
-    <script type="text/javascript" src="/FsAdvent2014/content/tips.js"></script>
+    <link type="text/css" rel="stylesheet" href="/##ProjectName##/content/style.css" />
+    <link type="text/css" rel="stylesheet" href="/##ProjectName##/content/project.css" />
+    <script type="text/javascript" src="/##ProjectName##/content/tips.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,15 +26,15 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li><a href="http://fsharp.org">fsharp.org</a></li>
-          <li><a href="http://github.com/yukitos/FsAdvent2014">github page</a></li>
+          <li><a href="http://github.com/##GitHome##/##GitName##">github page</a></li>
         </ul>
-        <h3 class="muted"><a href="/FsAdvent2014/index.html">FsAdvent2014</a></h3>
+        <h3 class="muted"><a href="/##ProjectName##/index.html">##ProjectName##</a></h3>
       </div>
       <hr />
       <div class="row">
         <div class="span9" id="main">
           
-<h1>Create a project with using F# Project Scaffold</h1>
+<h1><a name="Create-a-project-with-using-F-Project-Scaffold" class="anchor" href="#Create-a-project-with-using-F-Project-Scaffold">Create a project with using F# Project Scaffold</a></h1>
 
 <p>This article is the 4th in the <a href="http://connpass.com/event/9758/">F# Advent Calendar in Japanese</a> series.</p>
 
@@ -43,7 +43,7 @@
 
 <p>Here, as titled, I'm trying to create a new project with using <a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a>.</p>
 
-<h2>Getting started</h2>
+<h2><a name="Getting-started" class="anchor" href="#Getting-started">Getting started</a></h2>
 
 <p><a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a>'s <a href="http://fsprojects.github.io/ProjectScaffold/index.html#Getting-started">Getting started</a> page says:</p>
 
@@ -58,11 +58,11 @@
 <p>Extract the file under <code>C:\gh\MyProject</code> directory, so now I have <code>C:\gh\MyProject\build.cmd</code> etc.</p>
 
 <p>Note that we shouldn't extract it into some deep directory path.
-When I extracted the file under <code>deep\deep\deep\directory\path\on\your\machine</code>,
+When I extracted the file under <code>deep\deep\deep\directory\path\on\my\machine</code>,
 I had got a cryptic <code>Could not find a part of the path</code> error during building my project.
 I suspect that this error has been caused by some NuGet packages which have too long path inside it.</p>
 
-<h2>Initialize my project</h2>
+<h2><a name="Initialize-my-project" class="anchor" href="#Initialize-my-project">Initialize my project</a></h2>
 
 <p>To initialize my project, start command prompt via Windows Explorer
 (input <code>cmd</code> in the address bar and then press enter) or start from Start Menu and move to the project folder.
@@ -73,7 +73,8 @@ Then run the following command:</p>
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="i">build</span><span class="o">.</span><span class="i">cmd</span></pre>
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span>
+</pre>
 </td>
 </tr>
 </table>
@@ -125,7 +126,7 @@ At this point, the newly created solution file and related projects are availabl
 
 <p>This time, however, I'm trying to add Japanese documents rather than implementing my project :)</p>
 
-<h2>Add Japanese documents</h2>
+<h2><a name="Add-Japanese-documents" class="anchor" href="#Add-Japanese-documents">Add Japanese documents</a></h2>
 
 <p>By default, <a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a> has an ability to generate project's documents.
 All <code>.fsx</code> and/or <code>.md</code> files under <code>docs/content</code> directory are parsed and
@@ -140,7 +141,8 @@ In addition, project's API reference documents will be generated if XML document
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">AddLangDocs</span> <span class="i">ja</span></pre>
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">AddLangDocs</span> <span class="i">ja</span>
+</pre>
 </td>
 </tr>
 </table>
@@ -153,7 +155,8 @@ In addition, project's API reference documents will be generated if XML document
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">AddLangDocs</span> <span class="i">ja</span> <span class="i">de</span> <span class="i">fr</span> <span class="i">zh</span></pre>
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">AddLangDocs</span> <span class="i">ja</span> <span class="i">de</span> <span class="i">fr</span> <span class="i">zh</span>
+</pre>
 </td>
 </tr>
 </table>
@@ -164,17 +167,17 @@ In addition, project's API reference documents will be generated if XML document
 
         </div>
         <div class="span3">
-          <img src="/FsAdvent2014/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <img src="/##ProjectName##/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
           <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
             <li class="nav-header">
-              <a href="/FsAdvent2014/ja/index.html" class="nflag"><img src="/FsAdvent2014/img/ja.png" /></a>
-              <a href="/FsAdvent2014/index.html" class="nflag nflag2"><img src="/FsAdvent2014/img/en.png" /></a>
-              FsAdvent2014
+              <a href="/##ProjectName##/ja/index.html" class="nflag"><img src="/##ProjectName##/img/ja.png" /></a>
+              <a href="/##ProjectName##/index.html" class="nflag nflag2"><img src="/##ProjectName##/img/en.png" /></a>
+              ##ProjectName##
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <a href="http://github.com/yukitos/FsAdvent2014"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+    <a href="http://github.com/##GitHome##/##GitName##"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
   </body>
   </html>

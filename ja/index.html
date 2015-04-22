@@ -5,17 +5,17 @@
     <title>F# Project Scaffoldを使ってプロジェクトを作成する
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="F# Advent Calendar 2014 project"/>
-    <meta name="author" content="yukitos"/>
+    <meta name="description" content="##Summary##"/>
+    <meta name="author" content="##Author##"/>
 
     <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
     <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
     <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
 
-    <link type="text/css" rel="stylesheet" href="/FsAdvent2014/content/style.css" />
-    <link type="text/css" rel="stylesheet" href="/FsAdvent2014/content/project.css" />
-    <script type="text/javascript" src="/FsAdvent2014/content/tips.js"></script>
+    <link type="text/css" rel="stylesheet" href="/##ProjectName##/content/style.css" />
+    <link type="text/css" rel="stylesheet" href="/##ProjectName##/content/project.css" />
+    <script type="text/javascript" src="/##ProjectName##/content/tips.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,15 +26,15 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li><a href="http://fsharp.org">fsharp.org</a></li>
-          <li><a href="http://github.com/yukitos/FsAdvent2014">github page</a></li>
+          <li><a href="http://github.com/##GitHome##/##GitName##">github page</a></li>
         </ul>
-        <h3 class="muted"><a href="/FsAdvent2014/index.html">FsAdvent2014</a></h3>
+        <h3 class="muted"><a href="/##ProjectName##/index.html">##ProjectName##</a></h3>
       </div>
       <hr />
       <div class="row">
         <div class="span9" id="main">
           
-<h1>F# Project Scaffoldを使ってプロジェクトを作成する</h1>
+<h1><a name="F-Project-Scaffoldを使ってプロジェクトを作成する" class="anchor" href="#F-Project-Scaffoldを使ってプロジェクトを作成する">F# Project Scaffoldを使ってプロジェクトを作成する</a></h1>
 
 <p>この記事は<a href="http://connpass.com/event/9758/">F# Advent Calendar 2014</a>の4日目です。</p>
 
@@ -43,7 +43,7 @@
 <p>さてここではタイトルの通り、<a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a>を使って
 プロジェクトをセットアップしてみましたという話をしたいと思います。</p>
 
-<h2><a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a> を入手する</h2>
+<h2><a name="を入手する" class="anchor" href="#を入手する"><a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a> を入手する</a></h2>
 
 <p><a href="https://github.com/fsprojects/ProjectScaffold">F# Project Scaffold</a>のページによると、
 まずはプロジェクトを複製するか、ProjectScaffoldレポジトリを
@@ -71,7 +71,7 @@ Monoな環境はわからないので誰か他の人にお任せします。</p>
 何故かパッケージ(nupkgでしたっけ？実際は単なるzipファイル)の中に
 URLエンコードされたらしいやたらと長いフォルダ名があるのが原因に見えますが果たして。</p>
 
-<h2>プロジェクトの初期設定</h2>
+<h2><a name="プロジェクトの初期設定" class="anchor" href="#プロジェクトの初期設定">プロジェクトの初期設定</a></h2>
 
 <p>展開したファイルを使ってプロジェクトの初期設定をします。
 既にこの時点で展開先のフォルダをエクスプローラーで開いていると思うので、
@@ -86,7 +86,8 @@ URLエンコードされたらしいやたらと長いフォルダ名がある�
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="i">build</span><span class="o">.</span><span class="i">cmd</span></pre>
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span>
+</pre>
 </td>
 </tr>
 </table>
@@ -147,7 +148,25 @@ URLエンコードされたらしいやたらと長いフォルダ名がある�
 あとはこのままソリューションファイルを開いてコードを作成すればいいんですが、
 今回はさらに英語と日本語のドキュメントを用意するところまで頑張ってみたいと思います。</p>
 
-<h2>日本語ドキュメントの追加</h2>
+<h2><a name="日本語ドキュメントの追加" class="anchor" href="#日本語ドキュメントの追加">日本語ドキュメントの追加</a></h2>
+
+<blockquote>
+  <p>2015/04/22 追記</p>
+
+  <p><code>build.cmd AddLangDocs</code> コマンドに不具合があり、各言語用のテンプレートファイルが
+正しく適用されていないことがわかりました。
+bleisさんありがとうございます。</p>
+
+  <p>2015/4/22現在の最新版では修正されていますので、
+これから使い始める場合には問題無いはずです。</p>
+
+  <p>既に使い始めている場合には<code>docs/tools/generate.fsx</code>を以下と同じように
+修正すればいいはずです：</p>
+
+  <p><a href="https://github.com/yukitos/ProjectScaffold/commit/5a2fdb4b72f5b2c704e8b85fabf5f0eb4fd89831">https://github.com/yukitos/ProjectScaffold/commit/5a2fdb4b72f5b2c704e8b85fabf5f0eb4fd89831</a></p>
+</blockquote>
+
+<hr />
 
 <blockquote>
   <p>2014/12/6 追記</p>
@@ -182,7 +201,7 @@ htmlファイルに変換してくれます。
 <code>docs/content/ja/index.fsx</code> にコピーして、
 中身もそれとわかるように少し書き換えておきます。</p>
 
-<h3>日本語ファイル用テンプレートの追加</h3>
+<h3><a name="日本語ファイル用テンプレートの追加" class="anchor" href="#日本語ファイル用テンプレートの追加">日本語ファイル用テンプレートの追加</a></h3>
 
 <p>次に日本語ファイル用のテンプレートが必要です。
 既にあるものをそのまま使っても問題ないのですが、
@@ -195,7 +214,7 @@ htmlファイルに変換してくれます。
 
 <p>ここでもやはりそれとわかるようにファイルを編集しておくとよいです。</p>
 
-<h3>ドキュメント生成スクリプトの編集</h3>
+<h3><a name="ドキュメント生成スクリプトの編集" class="anchor" href="#ドキュメント生成スクリプトの編集">ドキュメント生成スクリプトの編集</a></h3>
 
 <p>テンプレートファイルを用意しただけでは誰もそれを使ってくれないので、
 ドキュメント生成スクリプトを編集して、
@@ -260,7 +279,7 @@ htmlファイルに変換してくれます。
 <td class="snippet"><pre class="fssnip">
 (<span class="i">前略</span>)
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">docTemplate</span> <span class="o">=</span> <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">/</span><span class="s">docpage</span><span class="s">.</span><span class="s">cshtml</span><span class="s">&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">docTemplate</span> <span class="o">=</span> <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;templates/docpage.cshtml&quot;</span>
 
 <span class="c">// Where to look for *.csproj templates (in this order)</span>
 <span class="c">// Note that the key will be the directory name of language specific contents</span>
@@ -269,46 +288,47 @@ htmlファイルに変換してくれます。
 <span class="c">// TODO: Add new entries below when you create more language specific documents.</span>
 
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">layoutRootsAll</span> <span class="o">=</span>
-  <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">dict</span> [ (<span class="s">&quot;</span><span class="s">en</span><span class="s">&quot;</span>, [<span class="i">templates</span>; <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">&quot;</span>
-                 <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">/</span><span class="s">reference</span><span class="s">&quot;</span>])
-         (<span class="s">&quot;</span><span class="s">ja</span><span class="s">&quot;</span>, [<span class="i">templates</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">ja</span><span class="s">&quot;</span>; <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">&quot;</span>
-                 <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">/</span><span class="s">reference</span><span class="s">&quot;</span>]) ]
+  <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="f">dict</span> [ (<span class="s">&quot;en&quot;</span>, [<span class="i">templates</span>; <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;templates&quot;</span>
+                 <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;templates/reference&quot;</span>])
+         (<span class="s">&quot;ja&quot;</span>, [<span class="i">templates</span> <span class="o">@@</span> <span class="s">&quot;ja&quot;</span>; <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;templates&quot;</span>
+                 <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;templates/reference&quot;</span>]) ]
 
 <span class="c">// Copy static files and CSS + JS from F# Formatting</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">copyFiles</span> () <span class="o">=</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="f">copyFiles</span> () <span class="o">=</span>
 
 (<span class="i">中略</span>)
 
 <span class="c">// Build API reference from XML comments</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">buildReference</span> () <span class="o">=</span>
-  <span class="i">CleanDir</span> (<span class="i">output</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">reference</span><span class="s">&quot;</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="f">buildReference</span> () <span class="o">=</span>
+  <span class="i">CleanDir</span> (<span class="i">output</span> <span class="o">@@</span> <span class="s">&quot;reference&quot;</span>)
   <span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">binaries</span> <span class="o">=</span>
     <span class="i">referenceBinaries</span>
-    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="i">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="i">lib</span><span class="k">-&gt;</span> <span class="i">bin</span> <span class="o">@@</span> <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="i">lib</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="f">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="i">lib</span><span class="k">-&gt;</span> <span class="i">bin</span> <span class="o">@@</span> <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="i">lib</span>)
   <span class="c">// NOTE: Currently the API reference is available in English only.</span>
   <span class="i">MetadataFormat</span><span class="o">.</span><span class="i">Generate</span>
-    ( <span onmouseout="hideTip(event, 'fs6', 11)" onmouseover="showTip(event, 'fs6', 11)" class="i">binaries</span>, <span class="i">output</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">reference</span><span class="s">&quot;</span>, <span onmouseout="hideTip(event, 'fs2', 12)" onmouseover="showTip(event, 'fs2', 12)" class="i">layoutRootsAll</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">en</span><span class="s">&quot;</span>], 
-      <span class="i">parameters</span> <span class="o">=</span> (<span class="s">&quot;</span><span class="s">root</span><span class="s">&quot;</span>, <span class="i">root</span>)<span class="o">::</span><span class="i">info</span>,
-      <span class="i">sourceRepo</span> <span class="o">=</span> <span class="i">githubLink</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">tree</span><span class="s">/</span><span class="s">master</span><span class="s">&quot;</span>,
-      <span class="i">sourceFolder</span> <span class="o">=</span> <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">.</span><span class="s">.</span><span class="s">&quot;</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">.</span><span class="s">.</span><span class="s">&quot;</span>,
+    ( <span onmouseout="hideTip(event, 'fs6', 11)" onmouseover="showTip(event, 'fs6', 11)" class="i">binaries</span>, <span class="i">output</span> <span class="o">@@</span> <span class="s">&quot;reference&quot;</span>, <span onmouseout="hideTip(event, 'fs2', 12)" onmouseover="showTip(event, 'fs2', 12)" class="i">layoutRootsAll</span><span class="o">.</span>[<span class="s">&quot;en&quot;</span>], 
+      <span class="i">parameters</span> <span class="o">=</span> (<span class="s">&quot;root&quot;</span>, <span class="i">root</span>)<span class="o">::</span><span class="i">info</span>,
+      <span class="i">sourceRepo</span> <span class="o">=</span> <span class="i">githubLink</span> <span class="o">@@</span> <span class="s">&quot;tree/master&quot;</span>,
+      <span class="i">sourceFolder</span> <span class="o">=</span> <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">@@</span> <span class="s">&quot;..&quot;</span> <span class="o">@@</span> <span class="s">&quot;..&quot;</span>,
       <span class="i">publicOnly</span> <span class="o">=</span> <span class="k">true</span>, <span class="i">libDirs</span> <span class="o">=</span> [<span class="i">bin</span>] )
 
 <span class="c">// Build documentation from `fsx` and `md` files in `docs/content`</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="i">buildDocumentation</span> () <span class="o">=</span>
-  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="i">subdirs</span> <span class="o">=</span> <span class="i">Directory</span><span class="o">.</span><span class="i">EnumerateDirectories</span>(<span class="i">content</span>, <span class="s">&quot;</span><span class="s">*</span><span class="s">&quot;</span>, <span class="i">SearchOption</span><span class="o">.</span><span class="i">AllDirectories</span>)
-  <span class="k">for</span> <span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="i">dir</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 17)" onmouseover="showTip(event, 'fs14', 17)" class="i">append</span> [<span class="i">content</span>] <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="i">subdirs</span> <span class="k">do</span>
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="i">sub</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs12', 20)" onmouseover="showTip(event, 'fs12', 20)" class="i">dir</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="i">Length</span> <span class="o">&gt;</span> <span class="i">content</span><span class="o">.</span><span class="i">Length</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs12', 22)" onmouseover="showTip(event, 'fs12', 22)" class="i">dir</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="i">Substring</span>(<span class="i">content</span><span class="o">.</span><span class="i">Length</span> <span class="o">+</span> <span class="n">1</span>) <span class="k">else</span> <span class="s">&quot;</span><span class="s">.</span><span class="s">&quot;</span>
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 24)" onmouseover="showTip(event, 'fs18', 24)" class="i">langSpecificPath</span>(<span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="i">lang</span>, <span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="i">path</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="i">string</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs20', 28)" onmouseover="showTip(event, 'fs20', 28)" class="i">path</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs22', 29)" onmouseover="showTip(event, 'fs22', 29)" class="i">Split</span>(<span class="s">&#39;/&#39;</span>, <span class="s">&#39;\\&#39;</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 30)" onmouseover="showTip(event, 'fs23', 30)" class="i">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs24', 31)" onmouseover="showTip(event, 'fs24', 31)" class="i">exists</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs25', 32)" onmouseover="showTip(event, 'fs25', 32)" class="i">i</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs25', 33)" onmouseover="showTip(event, 'fs25', 33)" class="i">i</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 34)" onmouseover="showTip(event, 'fs19', 34)" class="i">lang</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="f">buildDocumentation</span> () <span class="o">=</span>
+  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="i">subdirs</span> <span class="o">=</span> <span class="i">Directory</span><span class="o">.</span><span class="i">EnumerateDirectories</span>(<span class="i">content</span>, <span class="s">&quot;*&quot;</span>, <span class="i">SearchOption</span><span class="o">.</span><span class="i">AllDirectories</span>)
+  <span class="k">for</span> <span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="i">dir</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 17)" onmouseover="showTip(event, 'fs14', 17)" class="f">append</span> [<span class="i">content</span>] <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="i">subdirs</span> <span class="k">do</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="i">sub</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs12', 20)" onmouseover="showTip(event, 'fs12', 20)" class="i">dir</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="i">Length</span> <span class="o">&gt;</span> <span class="i">content</span><span class="o">.</span><span class="i">Length</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs12', 22)" onmouseover="showTip(event, 'fs12', 22)" class="i">dir</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="i">Substring</span>(<span class="i">content</span><span class="o">.</span><span class="i">Length</span> <span class="o">+</span> <span class="n">1</span>) <span class="k">else</span> <span class="s">&quot;.&quot;</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 24)" onmouseover="showTip(event, 'fs18', 24)" class="f">langSpecificPath</span>(<span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="i">lang</span>, <span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="i">path</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="t">string</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs20', 28)" onmouseover="showTip(event, 'fs20', 28)" class="i">path</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs22', 29)" onmouseover="showTip(event, 'fs22', 29)" class="f">Split</span>(<span class="s">&#39;/&#39;</span>, <span class="s">&#39;\\&#39;</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 30)" onmouseover="showTip(event, 'fs23', 30)" class="t">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs24', 31)" onmouseover="showTip(event, 'fs24', 31)" class="f">exists</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs25', 32)" onmouseover="showTip(event, 'fs25', 32)" class="i">i</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs25', 33)" onmouseover="showTip(event, 'fs25', 33)" class="i">i</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 34)" onmouseover="showTip(event, 'fs19', 34)" class="i">lang</span>)
     <span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 35)" onmouseover="showTip(event, 'fs26', 35)" class="i">layoutRoots</span> <span class="o">=</span>
-        <span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 36)" onmouseover="showTip(event, 'fs27', 36)" class="i">key</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 37)" onmouseover="showTip(event, 'fs2', 37)" class="i">layoutRootsAll</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs28', 38)" onmouseover="showTip(event, 'fs28', 38)" class="i">Keys</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 39)" onmouseover="showTip(event, 'fs13', 39)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs29', 40)" onmouseover="showTip(event, 'fs29', 40)" class="i">tryFind</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs25', 41)" onmouseover="showTip(event, 'fs25', 41)" class="i">i</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs18', 42)" onmouseover="showTip(event, 'fs18', 42)" class="i">langSpecificPath</span>(<span onmouseout="hideTip(event, 'fs25', 43)" onmouseover="showTip(event, 'fs25', 43)" class="i">i</span>, <span onmouseout="hideTip(event, 'fs12', 44)" onmouseover="showTip(event, 'fs12', 44)" class="i">dir</span>))
+        <span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 36)" onmouseover="showTip(event, 'fs27', 36)" class="i">key</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 37)" onmouseover="showTip(event, 'fs2', 37)" class="i">layoutRootsAll</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs28', 38)" onmouseover="showTip(event, 'fs28', 38)" class="i">Keys</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 39)" onmouseover="showTip(event, 'fs13', 39)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs29', 40)" onmouseover="showTip(event, 'fs29', 40)" class="f">tryFind</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs25', 41)" onmouseover="showTip(event, 'fs25', 41)" class="i">i</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs18', 42)" onmouseover="showTip(event, 'fs18', 42)" class="f">langSpecificPath</span>(<span onmouseout="hideTip(event, 'fs25', 43)" onmouseover="showTip(event, 'fs25', 43)" class="i">i</span>, <span onmouseout="hideTip(event, 'fs12', 44)" onmouseover="showTip(event, 'fs12', 44)" class="i">dir</span>))
         <span class="k">match</span> <span onmouseout="hideTip(event, 'fs27', 45)" onmouseover="showTip(event, 'fs27', 45)" class="i">key</span> <span class="k">with</span>
-        | <span onmouseout="hideTip(event, 'fs30', 46)" onmouseover="showTip(event, 'fs30', 46)" class="i">Some</span> <span onmouseout="hideTip(event, 'fs31', 47)" onmouseover="showTip(event, 'fs31', 47)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 48)" onmouseover="showTip(event, 'fs2', 48)" class="i">layoutRootsAll</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs31', 49)" onmouseover="showTip(event, 'fs31', 49)" class="i">x</span>]
-        | <span onmouseout="hideTip(event, 'fs32', 50)" onmouseover="showTip(event, 'fs32', 50)" class="i">None</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 51)" onmouseover="showTip(event, 'fs2', 51)" class="i">layoutRootsAll</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">en</span><span class="s">&quot;</span>] <span class="c">// &quot;en&quot; is the default language</span>
+        | <span onmouseout="hideTip(event, 'fs30', 46)" onmouseover="showTip(event, 'fs30', 46)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs31', 47)" onmouseover="showTip(event, 'fs31', 47)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 48)" onmouseover="showTip(event, 'fs2', 48)" class="i">layoutRootsAll</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs31', 49)" onmouseover="showTip(event, 'fs31', 49)" class="i">x</span>]
+        | <span onmouseout="hideTip(event, 'fs32', 50)" onmouseover="showTip(event, 'fs32', 50)" class="p">None</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 51)" onmouseover="showTip(event, 'fs2', 51)" class="i">layoutRootsAll</span><span class="o">.</span>[<span class="s">&quot;en&quot;</span>] <span class="c">// &quot;en&quot; is the default language</span>
     <span class="i">Literate</span><span class="o">.</span><span class="i">ProcessDirectory</span>
-      ( <span onmouseout="hideTip(event, 'fs12', 52)" onmouseover="showTip(event, 'fs12', 52)" class="i">dir</span>, <span onmouseout="hideTip(event, 'fs1', 53)" onmouseover="showTip(event, 'fs1', 53)" class="i">docTemplate</span>, <span class="i">output</span> <span class="o">@@</span> <span onmouseout="hideTip(event, 'fs15', 54)" onmouseover="showTip(event, 'fs15', 54)" class="i">sub</span>, <span class="i">replacements</span> <span class="o">=</span> (<span class="s">&quot;</span><span class="s">root</span><span class="s">&quot;</span>, <span class="i">root</span>)<span class="o">::</span><span class="i">info</span>,
+      ( <span onmouseout="hideTip(event, 'fs12', 52)" onmouseover="showTip(event, 'fs12', 52)" class="i">dir</span>, <span onmouseout="hideTip(event, 'fs1', 53)" onmouseover="showTip(event, 'fs1', 53)" class="i">docTemplate</span>, <span class="i">output</span> <span class="o">@@</span> <span onmouseout="hideTip(event, 'fs15', 54)" onmouseover="showTip(event, 'fs15', 54)" class="i">sub</span>, <span class="i">replacements</span> <span class="o">=</span> (<span class="s">&quot;root&quot;</span>, <span class="i">root</span>)<span class="o">::</span><span class="i">info</span>,
         <span onmouseout="hideTip(event, 'fs26', 55)" onmouseover="showTip(event, 'fs26', 55)" class="i">layoutRoots</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs26', 56)" onmouseover="showTip(event, 'fs26', 56)" class="i">layoutRoots</span> )
 
-(<span class="i">後略</span>)</pre>
+(<span class="i">後略</span>)
+</pre>
 </td>
 </tr>
 </table>
@@ -335,7 +355,7 @@ L43で<code>layoutRootsAll.Keys</code>のいずれかが
 当たってしまうので後々まずいことになりそうな気がします :)</p>
 </blockquote>
 
-<h3>言語ページ用のリンクをメニューに追加する</h3>
+<h3><a name="言語ページ用のリンクをメニューに追加する" class="anchor" href="#言語ページ用のリンクをメニューに追加する">言語ページ用のリンクをメニューに追加する</a></h3>
 
 <p>さてここまでで英語と日本語のページが作成できるようになったわけですが、
 せっかく用意した日本語ページへのリンクも用意したいところです。</p>
@@ -369,13 +389,14 @@ L43で<code>layoutRootsAll.Keys</code>のいずれかが
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="o">&lt;</span><span class="i">li</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;</span><span class="s">nav</span><span class="s">-</span><span class="s">header</span><span class="s">&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="i">a</span> <span class="i">href</span><span class="o">=</span><span class="s">&quot;</span><span class="s">@</span><span class="s">Root</span><span class="s">/</span><span class="s">ja</span><span class="s">/</span><span class="s">index</span><span class="s">.</span><span class="s">html</span><span class="s">&quot;</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;</span><span class="s">nflag</span><span class="s">&quot;</span><span class="o">&gt;</span><span class="o">&lt;</span><span class="i">img</span> <span class="i">src</span><span class="o">=</span><span class="s">&quot;</span><span class="s">@</span><span class="s">Root</span><span class="s">/</span><span class="s">img</span><span class="s">/</span><span class="s">ja</span><span class="s">.</span><span class="s">png</span><span class="s">&quot;</span> <span class="o">/&gt;&lt;/</span><span class="i">a</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="i">a</span> <span class="i">href</span><span class="o">=</span><span class="s">&quot;</span><span class="s">@</span><span class="s">Root</span><span class="s">/</span><span class="s">index</span><span class="s">.</span><span class="s">html</span><span class="s">&quot;</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;</span><span class="s">nflag</span><span class="s"> </span><span class="s">nflag2</span><span class="s">&quot;</span><span class="o">&gt;</span><span class="o">&lt;</span><span class="i">img</span> <span class="i">src</span><span class="o">=</span><span class="s">&quot;</span><span class="s">@</span><span class="s">Root</span><span class="s">/</span><span class="s">img</span><span class="s">/</span><span class="s">en</span><span class="s">.</span><span class="s">png</span><span class="s">&quot;</span> <span class="o">/&gt;&lt;/</span><span class="i">a</span><span class="o">&gt;</span>
-  <span class="o">@</span><span class="i">Properties</span>[<span class="s">&quot;</span><span class="s">project</span><span class="s">-</span><span class="s">name</span><span class="s">&quot;</span>]
+<span class="o">&lt;</span><span class="i">li</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;nav-header&quot;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="i">a</span> <span class="i">href</span><span class="o">=</span><span class="s">&quot;@Root/ja/index.html&quot;</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;nflag&quot;</span><span class="o">&gt;</span><span class="o">&lt;</span><span class="i">img</span> <span class="i">src</span><span class="o">=</span><span class="s">&quot;@Root/img/ja.png&quot;</span> <span class="o">/&gt;&lt;/</span><span class="i">a</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="i">a</span> <span class="i">href</span><span class="o">=</span><span class="s">&quot;@Root/index.html&quot;</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;nflag nflag2&quot;</span><span class="o">&gt;</span><span class="o">&lt;</span><span class="i">img</span> <span class="i">src</span><span class="o">=</span><span class="s">&quot;@Root/img/en.png&quot;</span> <span class="o">/&gt;&lt;/</span><span class="i">a</span><span class="o">&gt;</span>
+  <span class="o">@</span><span class="i">Properties</span>[<span class="s">&quot;project-name&quot;</span>]
 <span class="o">&lt;/</span><span class="i">li</span><span class="o">&gt;</span>
 
-<span class="o">&lt;</span><span class="i">li</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;</span><span class="s">divider</span><span class="s">&quot;</span><span class="o">&gt;</span><span class="o">&lt;/</span><span class="i">li</span><span class="o">&gt;</span></pre>
+<span class="o">&lt;</span><span class="i">li</span> <span class="k">class</span><span class="o">=</span><span class="s">&quot;divider&quot;</span><span class="o">&gt;</span><span class="o">&lt;/</span><span class="i">li</span><span class="o">&gt;</span>
+</pre>
 </td>
 </tr>
 </table>
@@ -383,7 +404,7 @@ L43で<code>layoutRootsAll.Keys</code>のいずれかが
 <p>これだけだと縦並びになってしまったりと都合が悪いので、
 プロジェクト固有のCSSを追加して体裁を整えます。</p>
 
-<h3>プロジェクト固有のCSSファイルの追加</h3>
+<h3><a name="プロジェクト固有のCSSファイルの追加" class="anchor" href="#プロジェクト固有のCSSファイルの追加">プロジェクト固有のCSSファイルの追加</a></h3>
 
 <p><code>docs/files/content</code>以下にプロジェクト固有のCSSファイルを追加します。</p>
 
@@ -407,7 +428,8 @@ L43で<code>layoutRootsAll.Keys</code>のいずれかが
 }
 <span class="o">.</span><span class="i">nav</span><span class="o">-</span><span onmouseout="hideTip(event, 'fs33', 59)" onmouseover="showTip(event, 'fs33', 59)" class="i">list</span> <span class="o">&gt;</span> <span class="i">li</span> <span class="o">&gt;</span> <span class="i">a</span><span class="o">.</span><span class="i">nflag2</span> {
   <span class="i">margin</span><span class="o">-</span><span class="i">right</span><span class="o">:</span><span class="n">18px</span>;
-}</pre>
+}
+</pre>
 </td>
 </tr>
 </table>
@@ -421,12 +443,13 @@ L43で<code>layoutRootsAll.Keys</code>のいずれかが
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="o">&lt;</span><span class="i">link</span> <span class="k">type</span><span class="o">=</span><span class="s">&quot;</span><span class="s">text</span><span class="s">/</span><span class="s">css</span><span class="s">&quot;</span> <span class="i">rel</span><span class="o">=</span><span class="s">&quot;</span><span class="s">stylesheet</span><span class="s">&quot;</span> <span class="i">href</span><span class="o">=</span><span class="s">&quot;</span><span class="s">@</span><span class="s">Root</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">project</span><span class="s">.</span><span class="s">css</span><span class="s">&quot;</span> <span class="o">/&gt;</span></pre>
+<span class="o">&lt;</span><span class="i">link</span> <span class="k">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="i">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="i">href</span><span class="o">=</span><span class="s">&quot;@Root/content/project.css&quot;</span> <span class="o">/&gt;</span>
+</pre>
 </td>
 </tr>
 </table>
 
-<h2>ビルドスクリプトの変更</h2>
+<h2><a name="ビルドスクリプトの変更" class="anchor" href="#ビルドスクリプトの変更">ビルドスクリプトの変更</a></h2>
 
 <p>以上で日英ドキュメントを作成する環境が整備できましたが、
 このままビルドしてみて、<code>docs/output</code> 以下に出力されるドキュメントを開いてみても
@@ -487,45 +510,46 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 </td>
 <td class="snippet"><pre class="fssnip">
 <span class="k">let</span> <span class="i">generateHelp&#39;</span> <span class="i">fail</span> <span class="i">debug</span> <span class="o">=</span>
-    <span class="k">let</span> <span class="i">args</span> <span class="o">=</span> <span class="k">if</span> <span class="i">debug</span> <span class="k">then</span> [<span class="s">&quot;</span><span class="s">-</span><span class="s">-</span><span class="s">define</span><span class="s">:</span><span class="s">HELP</span><span class="s">&quot;</span>]
-               <span class="k">else</span> [<span class="s">&quot;</span><span class="s">-</span><span class="s">-</span><span class="s">define</span><span class="s">:</span><span class="s">RELEASE</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">-</span><span class="s">-</span><span class="s">define</span><span class="s">:</span><span class="s">HELP</span><span class="s">&quot;</span>]
-    <span class="k">if</span> <span class="i">executeFSIWithArgs</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">tools</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">generate</span><span class="s">.</span><span class="s">fsx</span><span class="s">&quot;</span> <span class="i">args</span> [] <span class="k">then</span>
-        <span class="i">traceImportant</span> <span class="s">&quot;</span><span class="s">Help</span><span class="s"> </span><span class="s">generated</span><span class="s">&quot;</span>
+    <span class="k">let</span> <span class="i">args</span> <span class="o">=</span> <span class="k">if</span> <span class="i">debug</span> <span class="k">then</span> [<span class="s">&quot;--define:HELP&quot;</span>]
+               <span class="k">else</span> [<span class="s">&quot;--define:RELEASE&quot;</span>; <span class="s">&quot;--define:HELP&quot;</span>]
+    <span class="k">if</span> <span class="i">executeFSIWithArgs</span> <span class="s">&quot;docs/tools&quot;</span> <span class="s">&quot;generate.fsx&quot;</span> <span class="i">args</span> [] <span class="k">then</span>
+        <span class="i">traceImportant</span> <span class="s">&quot;Help generated&quot;</span>
     <span class="k">else</span>
         <span class="k">if</span> <span class="i">fail</span> <span class="k">then</span>
-            <span onmouseout="hideTip(event, 'fs35', 60)" onmouseover="showTip(event, 'fs35', 60)" class="i">failwith</span> <span class="s">&quot;</span><span class="s">generating</span><span class="s"> </span><span class="s">help</span><span class="s"> </span><span class="s">documentation</span><span class="s"> </span><span class="s">failed</span><span class="s">&quot;</span>
+            <span onmouseout="hideTip(event, 'fs35', 60)" onmouseover="showTip(event, 'fs35', 60)" class="f">failwith</span> <span class="s">&quot;generating help documentation failed&quot;</span>
         <span class="k">else</span>
-            <span class="i">traceImportant</span> <span class="s">&quot;</span><span class="s">generating</span><span class="s"> </span><span class="s">help</span><span class="s"> </span><span class="s">documentation</span><span class="s"> </span><span class="s">failed</span><span class="s">&quot;</span>
+            <span class="i">traceImportant</span> <span class="s">&quot;generating help documentation failed&quot;</span>
 
 <span class="k">let</span> <span class="i">generateHelp</span> <span class="i">fail</span> <span class="o">=</span>
     <span class="i">generateHelp&#39;</span> <span class="i">fail</span> <span class="k">false</span>
 
-<span class="i">Target</span> <span class="s">&quot;</span><span class="s">GenerateHelp</span><span class="s">&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
-    <span class="i">DeleteFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">release</span><span class="s">-</span><span class="s">notes</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>    
-    <span class="i">CopyFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">RELEASE_NOTES</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>
-    <span class="i">Rename</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">release</span><span class="s">-</span><span class="s">notes</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">RELEASE_NOTES</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>
+<span class="i">Target</span> <span class="s">&quot;GenerateHelp&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+    <span class="i">DeleteFile</span> <span class="s">&quot;docs/content/release-notes.md&quot;</span>    
+    <span class="i">CopyFile</span> <span class="s">&quot;docs/content/&quot;</span> <span class="s">&quot;RELEASE_NOTES.md&quot;</span>
+    <span class="i">Rename</span> <span class="s">&quot;docs/content/release-notes.md&quot;</span> <span class="s">&quot;docs/content/RELEASE_NOTES.md&quot;</span>
 
-    <span class="i">DeleteFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">license</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>
-    <span class="i">CopyFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">LICENSE</span><span class="s">.</span><span class="s">txt</span><span class="s">&quot;</span>
-    <span class="i">Rename</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">license</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">LICENSE</span><span class="s">.</span><span class="s">txt</span><span class="s">&quot;</span>
+    <span class="i">DeleteFile</span> <span class="s">&quot;docs/content/license.md&quot;</span>
+    <span class="i">CopyFile</span> <span class="s">&quot;docs/content/&quot;</span> <span class="s">&quot;LICENSE.txt&quot;</span>
+    <span class="i">Rename</span> <span class="s">&quot;docs/content/license.md&quot;</span> <span class="s">&quot;docs/content/LICENSE.txt&quot;</span>
 
     <span class="i">generateHelp</span> <span class="k">true</span>
 )
 
-<span class="i">Target</span> <span class="s">&quot;</span><span class="s">GenerateHelpDebug</span><span class="s">&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
-    <span class="i">DeleteFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">release</span><span class="s">-</span><span class="s">notes</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>    
-    <span class="i">CopyFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">RELEASE_NOTES</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>
-    <span class="i">Rename</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">release</span><span class="s">-</span><span class="s">notes</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">RELEASE_NOTES</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>
+<span class="i">Target</span> <span class="s">&quot;GenerateHelpDebug&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+    <span class="i">DeleteFile</span> <span class="s">&quot;docs/content/release-notes.md&quot;</span>    
+    <span class="i">CopyFile</span> <span class="s">&quot;docs/content/&quot;</span> <span class="s">&quot;RELEASE_NOTES.md&quot;</span>
+    <span class="i">Rename</span> <span class="s">&quot;docs/content/release-notes.md&quot;</span> <span class="s">&quot;docs/content/RELEASE_NOTES.md&quot;</span>
 
-    <span class="i">DeleteFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">license</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span>
-    <span class="i">CopyFile</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">LICENSE</span><span class="s">.</span><span class="s">txt</span><span class="s">&quot;</span>
-    <span class="i">Rename</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">license</span><span class="s">.</span><span class="s">md</span><span class="s">&quot;</span> <span class="s">&quot;</span><span class="s">docs</span><span class="s">/</span><span class="s">content</span><span class="s">/</span><span class="s">LICENSE</span><span class="s">.</span><span class="s">txt</span><span class="s">&quot;</span>
+    <span class="i">DeleteFile</span> <span class="s">&quot;docs/content/license.md&quot;</span>
+    <span class="i">CopyFile</span> <span class="s">&quot;docs/content/&quot;</span> <span class="s">&quot;LICENSE.txt&quot;</span>
+    <span class="i">Rename</span> <span class="s">&quot;docs/content/license.md&quot;</span> <span class="s">&quot;docs/content/LICENSE.txt&quot;</span>
 
     <span class="i">generateHelp&#39;</span> <span class="k">true</span> <span class="k">true</span>
 )
 
-<span class="s">&quot;</span><span class="s">CleanDocs</span><span class="s">&quot;</span>
-  <span class="o">==&gt;</span> <span class="s">&quot;</span><span class="s">GenerateHelpDebug</span><span class="s">&quot;</span></pre>
+<span class="s">&quot;CleanDocs&quot;</span>
+  <span class="o">==&gt;</span> <span class="s">&quot;GenerateHelpDebug&quot;</span>
+</pre>
 </td>
 </tr>
 </table>
@@ -549,12 +573,13 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">GenerateHelpDebug</span></pre>
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">GenerateHelpDebug</span>
+</pre>
 </td>
 </tr>
 </table>
 
-<h2>新しい言語用のドキュメントを追加する</h2>
+<h2><a name="新しい言語用のドキュメントを追加する" class="anchor" href="#新しい言語用のドキュメントを追加する">新しい言語用のドキュメントを追加する</a></h2>
 
 <p>英語と日本語以外のドキュメントを追加するために必要な手順は以下の通りです：</p>
 
@@ -572,15 +597,16 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-(<span class="s">&quot;</span><span class="s">&lt;</span><span class="s">lang</span><span class="s">&gt;</span><span class="s">&quot;</span>, [<span class="i">templates</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">&lt;</span><span class="s">lang</span><span class="s">&gt;</span><span class="s">&quot;</span>; <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">&quot;</span>
-            <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;</span><span class="s">templates</span><span class="s">/</span><span class="s">reference</span><span class="s">&quot;</span>])</pre>
+(<span class="s">&quot;&lt;lang&gt;&quot;</span>, [<span class="i">templates</span> <span class="o">@@</span> <span class="s">&quot;&lt;lang&gt;&quot;</span>; <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;templates&quot;</span>
+            <span class="i">formatting</span> <span class="o">@@</span> <span class="s">&quot;templates/reference&quot;</span>])
+</pre>
 </td>
 </tr>
 </table>
 
 <p>という形式になります。</p>
 
-<h2>ドキュメントをGitHub Pagesとして公開する</h2>
+<h2><a name="ドキュメントをGitHub-Pagesとして公開する" class="anchor" href="#ドキュメントをGitHub-Pagesとして公開する">ドキュメントをGitHub Pagesとして公開する</a></h2>
 
 <p>GitHub Pagesとしてドキュメントを公開するには、単に<code>gh-pages</code>というブランチを作成して、
 そのブランチへファイルをコミット＆プッシュするだけです。</p>
@@ -592,7 +618,8 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">ReleaseDocs</span></pre>
+<span class="i">build</span><span class="o">.</span><span class="i">cmd</span> <span class="i">ReleaseDocs</span>
+</pre>
 </td>
 </tr>
 </table>
@@ -609,14 +636,15 @@ GitHub Pages用のURLで各リンクが生成されるため、CSSなども読�
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="o">.</span><span class="o">/</span><span class="i">build</span><span class="o">.</span><span class="i">sh</span> <span class="i">ReleaseDocs</span></pre>
+<span class="o">.</span><span class="o">/</span><span class="i">build</span><span class="o">.</span><span class="i">sh</span> <span class="i">ReleaseDocs</span>
+</pre>
 </td>
 </tr>
 </table>
 
 <p>とすればGitHub Pagesにドキュメントをアップロードできます。お手軽です。</p>
 
-<h2>終わりに</h2>
+<h2><a name="終わりに" class="anchor" href="#終わりに">終わりに</a></h2>
 
 <p>お気づきかとは思いますが、以上のようにして作成したのがまさにこのページです。</p>
 
@@ -669,17 +697,17 @@ F#のプロジェクトを作成する場合には、GitHub上で
 
         </div>
         <div class="span3">
-          <img src="/FsAdvent2014/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <img src="/##ProjectName##/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
           <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
             <li class="nav-header">
-              <a href="/FsAdvent2014/ja/index.html" class="nflag"><img src="/FsAdvent2014/img/ja.png" /></a>
-              <a href="/FsAdvent2014/index.html" class="nflag nflag2"><img src="/FsAdvent2014/img/en.png" /></a>
-              FsAdvent2014
+              <a href="/##ProjectName##/ja/index.html" class="nflag"><img src="/##ProjectName##/img/ja.png" /></a>
+              <a href="/##ProjectName##/index.html" class="nflag nflag2"><img src="/##ProjectName##/img/en.png" /></a>
+              ##ProjectName##
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <a href="http://github.com/yukitos/FsAdvent2014"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+    <a href="http://github.com/##GitHome##/##GitName##"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
   </body>
   </html>
