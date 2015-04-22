@@ -27,7 +27,7 @@ By the way, I'm writing for Windows environment and I don't know how to do this 
 Extract the file under `C:\gh\MyProject` directory, so now I have `C:\gh\MyProject\build.cmd` etc.
 
 Note that we shouldn't extract it into some deep directory path.
-When I extracted the file under `deep\deep\deep\directory\path\on\your\machine`,
+When I extracted the file under `deep\deep\deep\directory\path\on\my\machine`,
 I had got a cryptic `Could not find a part of the path` error during building my project.
 I suspect that this error has been caused by some NuGet packages which have too long path inside it.
 
