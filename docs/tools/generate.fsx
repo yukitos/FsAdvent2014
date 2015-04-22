@@ -9,19 +9,19 @@
 // for binaries output to root bin folder please add the filename only to the 
 // referenceBinaries list below in order to generate documentation for the binaries.
 // (This is the original behaviour of ProjectScaffold prior to multi project support)
-let referenceBinaries = []
+let referenceBinaries = [ "FsAdvent2014.dll" ]
 // Web site location for the generated documentation
-let website = "/##ProjectName##"
+let website = "/FsAdvent2014"
 
-let githubLink = "http://github.com/##GitHome##/##GitName##"
+let githubLink = "http://github.com/yukitos/FsAdvent2014"
 
 // Specify more information about your project
 let info =
-  [ "project-name", "##ProjectName##"
-    "project-author", "##Author##"
-    "project-summary", "##Summary##"
+  [ "project-name", "FsAdvent2014"
+    "project-author", "yukitos"
+    "project-summary", "F# Advent Calendar 2014 project"
     "project-github", githubLink
-    "project-nuget", "http://nuget.org/packages/##ProjectName##" ]
+    "project-nuget", "http://nuget.org/packages/FsAdvent2014" ]
 
 // --------------------------------------------------------------------------------------
 // For typical project, no changes are needed below
